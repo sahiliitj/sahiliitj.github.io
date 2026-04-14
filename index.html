@@ -1,465 +1,3 @@
-
-i have made a github website, and i have zip file containing all the files, What's inside the ZIP (10 files):
-
-index.html — Hero homepage with animated typing, profile photo upload, and page overview cards
-pages/about.html — Bio, quick-facts card, and interest showcase
-pages/experience.html — Animated interactive timeline (Axtria → Google → DRDO → IIT TA → Chegg)
-pages/research.html — Publications, research cards, and focus areas
-pages/achievements.html — All 8 awards + education + 4 certifications
-pages/contact.html — 5 connect options (LinkedIn, Email, GitHub, Scholar, Twitter) + working contact form
-css/main.css — Full AI/neural theme with dark aesthetic
-js/main.js — All interactivity (neural canvas, cursor, typing, scroll reveals, particles)
-js/components.js — Shared nav, footer, add-page modal
-DEPLOY_GUIDE.md — Step-by-step deploy instructions
-To go live:
-
-Create a GitHub repo named yourusername.github.io
-Drag-drop all files (keeping folder structure)
-Settings → Pages → Deploy from main branch
-Done — live in ~2 minutes!
-Built-in features you'll love:
-
-Click the avatar on homepage → upload your photo (saves automatically)
-Click "+ Add page" in the nav → fill a form → new page appears instantly (no code needed)
-Custom AI cursor, neural network background animation, particle burst on click, scroll-fade reveals, and typing animation cycling through your roles i made a repo with above said name, now what to do next ?\
-Show more
-11:22 AM
-Here's exactly what to do next to get your site live:
-
-Step 1: Extract the ZIP file
-Unzip the file on your computer. You should see this structure:
-
-index.html
-pages/
-css/
-js/
-DEPLOY_GUIDE.md
-Step 2: Upload to GitHub
-Go to your repo on GitHub (e.g., github.com/yourusername/yourusername.github.io)
-Click "Add file" → "Upload files"
-Drag and drop the entire extracted folder contents (not the zip, the actual files)
-Make sure the folder structure is preserved — pages/, css/, js/ should appear as folders
-Scroll down, write a commit message like Initial commit and click "Commit changes"
-Step 3: Enable GitHub Pages
-Go to your repo → click "Settings" (top tab)
-In the left sidebar, click "Pages"
-Under "Source", select "Deploy from a branch"
-Set branch to main and folder to / (root)
-Click Save
-Step 4: Wait ~2 minutes ⏳
-GitHub will build and deploy your site. You'll see a green banner at the top of the Pages settings saying:
-
-✅ Your site is live at https://yourusername.github.io
-
-Step 5: Visit your site!
-Open https://yourusername.github.io in your browser.
-
-Common issues to watch for:
-
-If the site shows a 404, double-check that index.html is at the root of the repo (not inside a subfolder)
-If CSS/JS doesn't load, make sure the css/ and js/ folders are at the root level too
-Changes after the first deploy usually go live within 1–2 minutes
-Want help with anything after it's live — like customizing your name, bio, or adding content?
-
-I am not getting option of ADD FILES
-
-11:45 AM
-No worries! Here are a few alternative ways to upload your files:
-
-Option 1: Try a Different Button Location
-On your repo page, look for:
-
-A button that says "uploading an existing file" (it's a clickable link in the center of the page if repo is empty)
-It looks like this:
-
-"Get started by creating a new file or uploading an existing file"
-
-Option 2: Use the "+" dropdown
-Make sure you're on the main repo page (not Settings)
-Look for a "+" button or "Code" green button area
-The URL should look like: github.com/yourusername/yourusername.github.io
-Option 3: Easiest Alternative — GitHub via drag & drop
-Go to github.com/yourusername/yourusername.github.io
-Click the pencil/edit icon or look for "creating a new file" link
-Create a blank README.md file first (just type anything, commit it)
-Now the "Add file" button will appear in the toolbar!
-Option 4: Use GitHub Desktop App (Simplest!)
-Download GitHub Desktop from desktop.github.com
-Sign in → Clone your repo to your computer
-Copy all your unzipped files into that folder
-Click "Commit to main" → "Push origin"
-Done! ✅
-Which situation are you in?
-
-Is your repo completely empty (no files at all)?
-Or does it already have some files in it?
-That'll help me guide you to the exact button! 😊
-
-
-sahil-portfolio-website.zip
-zip
-
-its asking to upload files only but my zip folder has this structure
-
-12:02 PM
-Let me look at your zip file to understand the structure better.
-
-
-Check zip structure
-Check zip structure
-I can see the issue! Your ZIP has everything inside a sahil-portfolio/ parent folder. GitHub needs the files at the root level, not inside a subfolder. Here's what to do:
-
-The Problem
-Your ZIP structure is:
-
-sahil-portfolio/        ← ❌ Extra parent folder
-    index.html
-    css/
-    js/
-    pages/
-GitHub needs:
-
-index.html              ← ✅ Files at root
-css/
-js/
-pages/
-Fix: Extract & Upload Correctly
-On Windows:
-Right-click the ZIP → Extract All
-Open the extracted folder → open the sahil-portfolio subfolder inside it
-Select all files/folders inside (index.html, css/, js/, pages/, DEPLOY_GUIDE.md)
-Now go to GitHub → your repo → click "uploading an existing file" link
-Drag and drop those selected files directly onto the GitHub upload page
-On Mac:
-Double-click the ZIP to extract
-Open the sahil-portfolio folder inside
-Select everything inside it (Cmd+A)
-Drag onto GitHub upload page
-Important on GitHub Upload Page
-When dragging, GitHub supports folders — so drag css/, js/, pages/ folders along with index.html all at once. It will preserve the folder structure automatically! ✅
-
-Once uploaded, your index.html should appear directly in the repo root — then Pages will work perfectly.
-
-next step
-
-12:04 PM
-After uploading all files, here's what to do next:
-
-Enable GitHub Pages
-Go to your repo page on GitHub
-Click "Settings" tab (top of the repo)
-In the left sidebar, scroll down and click "Pages"
-Under "Source", click the dropdown and select "Deploy from a branch"
-Under "Branch", select main and keep folder as / (root)
-Click "Save"
-Wait for Deployment ⏳
-GitHub will show a yellow/orange dot 🟡 next to your latest commit — means it's building
-After 1–2 minutes it turns into a green ✅
-Refresh the Pages settings page — you'll see:
-🎉 "Your site is live at https://yourusername.github.io"
-
-Visit Your Site!
-Open your browser and go to:
-
-https://yourusername.github.io
-Let me know what you see — a green success banner, an error, or something else — and I'll help you from there! 🚀
-
-you have my project files, i want to change font, what should I do ?
-
-12:07 PM
-Let me first check your current CSS to see what fonts are being used.
-
-
-Extract and check current fonts
-Extract and check current fonts
-Your site currently uses 3 fonts. Which would you like to change?
-
-Q: Which font do you want to change?
-A: Change all 3 fonts
-
-Q: Do you have a font in mind, or want me to suggest options?
-A: Suggest me some good options
-
-12:07 PM
-Here are some great font combos that work well for a dark AI/tech portfolio like yours:
-
-
-
-Pick the combo that feels right and click "Use selected combo" — I'll update your main.css file instantly and give you the new file to upload to GitHub!
-
-I want combo 1: Modern Tech (Space Grotesk + Inter + Fira Code)
-
-12:08 PM
-
-Edited 2 files, viewed a file, ran a command
-Edited 2 files, viewed a file, ran a command
-Done! ✅ Here's how to apply it to your live site:
-
-Upload to GitHub
-Download the main.css file above
-Go to your GitHub repo → open the css folder
-Click on main.css → click the pencil (edit) icon ✏️
-Delete all the content → paste the new file content
-Click "Commit changes"
-OR the easier way:
-
-Go to css/ folder in your repo
-Click "Add file" → "Upload files"
-Drop the new main.css — it will replace the old one
-Commit!
-Your site will refresh in ~1 minute with Space Grotesk headings, Inter body text, and Fira Code for the code/mono elements. 🎉
-
-
-Main
-Code · CSS 
-Also, i have to modify my personal info, how can I do that ?
-
-12:09 PM
-Great question! Your personal info is spread across multiple HTML files. Let me check what's currently in them.
-
-
-Ran 2 commands
-Ran 2 commands
-I can see all your personal info clearly. Tell me what you'd like to update and I'll make all the changes across all files at once!
-
-Here's a summary of what's currently in your site:
-
-Field	Current Value
-Name	Sahil Sharma
-Title	Gen AI Developer & Researcher
-University	IIT Jodhpur — M.Sc + M.Tech (Dual)
-Current Role	Gen AI Developer · Axtria
-Email	sahilsharma@iitj.ac.in
-LinkedIn	sahil-sharma-2251b715b
-GitHub	github.com/ (empty)
-Google Scholar	scholar.google.com/ (empty)
-Twitter	twitter.com/ (empty)
-Bio	About Generative AI & Quantum ML at IIT Jodhpur
-Key Achievement	Dept Rank 1 · Google CSR Top 50 India
-Just tell me what to change! For example:
-
-"Change my GitHub to github.com/sahilsharma99"
-"Update my Twitter to @sahil_ai"
-"Change my bio to..."
-"Update all of it" — and I'll ask you for each field one by one
-What would you like to update? 😊
-
-does this have live access to my github profile ?
-
-12:28 PM
-No, I don't have live access to your GitHub profile or any of your accounts.
-
-Here's what I actually have:
-
-Only the ZIP file you uploaded to this chat
-I'm reading and editing those local files directly
-I have no connection to your GitHub repo, LinkedIn, email, or any other platform
-What this means for you:
-Every change I make here, you need to manually upload to GitHub to see it live. The workflow is always:
-
-You tell me changes
-      ↓
-I edit the files here
-      ↓
-I give you the updated file to download
-      ↓
-You upload it to GitHub
-      ↓
-Site updates in ~1-2 minutes
-Want live/automatic updates instead?
-You'd need to either:
-
-Edit files directly on GitHub (click pencil icon on any file)
-Use GitHub Desktop — edit locally, push changes instantly
-Use VS Code with GitHub extension — most powerful option
-Would you like to continue updating your info here, and I'll give you the files to upload? Just tell me what to change! 😊
-
-how can i change myself on github
-
-12:29 PM
-Here are 3 ways to edit files directly on GitHub — pick the easiest one for you:
-
-Option 1: Edit directly on GitHub (Easiest) ✅
-Go to your repo on GitHub
-Click on any file (e.g. index.html)
-Click the pencil icon ✏️ (top right of the file)
-Make your changes directly in the browser
-Click "Commit changes" → Done!
-Option 2: github.dev — Online VS Code (Best for multiple files)
-Go to your repo on GitHub
-Press the . (dot) key on your keyboard
-It opens a full VS Code editor in your browser — for free!
-Edit any file, save, then click the Source Control icon on the left sidebar
-Write a commit message → click Commit & Push
-This is the best option if you need to change multiple files at once
-
-Option 3: GitHub Desktop App (Best for beginners)
-Download from desktop.github.com
-Clone your repo to your PC
-Edit files using Notepad / VS Code on your computer
-Open GitHub Desktop → Commit → Push
-My Recommendation for you:
-Since you want to update personal info across multiple files, go with:
-
-Press . on your repo → edit in browser VS Code → commit all at once 🚀
-
-Want me to tell you exactly which lines to change in each file?
-
-If i edited the file on github, how much time would it take to reflect on website ?
-
-12:32 PM
-Usually 1–2 minutes at most! ⚡
-
-Here's what happens after you commit a change:
-
-You commit the file on GitHub
-        ↓
-GitHub Actions starts building  (~30 seconds)
-        ↓
-Site deploys automatically       (~30-60 seconds)
-        ↓
-Your live site updates!          (total ~1-2 mins)
-How to check if it's deployed:
-Go to your repo → click "Actions" tab at the top
-You'll see a workflow running with a yellow dot 🟡 (building)
-When it turns green ✅ — your site is live!
-Things to keep in mind:
-Browser cache can make it look like nothing changed even after deployment
-If the site looks the same after 2 mins, do a hard refresh:
-Windows: Ctrl + Shift + R
-Mac: Cmd + Shift + R
-First-ever deployment can take up to 5–10 minutes, but after that it's always fast
-So the workflow is basically:
-
-Edit → Commit → Wait 2 mins → Hard refresh → Done! 🎉
-
-
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&family=Fira+Code:wght@400;500&display=swap'); :root { --bg: #060610; --bg2: #0c0c1e; --bg3: #111128; --surface: #161630; --surface2: #1e1e
-
-pasted
-
-teh font has not changed, keep font Calibri in  whole website
-
-12:49 PM
-
-Edited 2 files, ran a command, read a file
-Edited 2 files, ran a command, read a file
-Done! ✅ The entire site now uses Calibri throughout — headings, body text, and mono sections all use the same font.
-
-Note: Calibri is a system font (comes pre-installed on Windows/Office). It works perfectly on Windows, but on Mac/Linux it may fall back to Candara (which looks very similar). There's no way around this since Calibri isn't available on Google Fonts.
-
-Upload to GitHub:
-Download the main.css file above
-Go to your repo → css/ folder → click main.css
-Click the pencil ✏️ icon → delete all content → paste the new file
-Click "Commit changes"
-Site updates in ~2 minutes! 🚀
-
-
-Main
-Code · CSS 
-still not changed, do we need to change in any other file tooo
-
-12:55 PM
-No, fonts are controlled only by main.css — but the issue is likely that the old file on GitHub still has the old fonts. Let me check if the file you shared earlier was actually the updated one or the old one.
-
-Looking at the document you pasted — it still had Space Grotesk / Inter / Fira Code in it, which means you were editing/uploading an older version of the file, not the latest one I gave you.
-
-Here's what to do — step by step:
-1. Download the main.css I just gave you above ⬆️
-Make sure you're downloading the latest file from this chat, not an older one.
-
-2. Verify before uploading
-Open the downloaded file in Notepad and check line 1 should say:
-
-/* Using system Calibri font — no import needed */
-And lines 24–26 should say:
-
---font-display: 'Calibri', 'Candara', sans-serif;
---font-body:    'Calibri', 'Candara', sans-serif;
---font-mono:    'Calibri', 'Candara', sans-serif;
-If you see these lines ✅ — the file is correct, upload it.
-
-3. Upload correctly on GitHub
-Go to your repo → click css folder → click main.css
-Click pencil ✏️ icon
-Press Ctrl+A to select ALL content → delete it
-Open your downloaded file in Notepad → Ctrl+A → Ctrl+C
-Paste into GitHub editor → Commit changes
-4. Hard refresh your site
-After 2 minutes, press Ctrl + Shift + R on your site — this clears cache!
-
-That cache clear step is usually the reason it looks unchanged even after a correct upload. Give it a try! 😊
-
-
-<!DOCTYPE html> <html lang="en"> <head> <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>Contact — Sahil Sharma</title> <link rel="stylesheet" href="../css/main.css"> <style> .contact-hero { padding: 100px 0 80px; } .contact-grid { display: grid; gr
-
-pasted
-
-rectify where required because changes are not reflected on website
-
-1:00 PM
-I can see the issue! The font change isn't reflecting because the HTML files load main.css but your browser is caching the old CSS. Also, I can spot a few errors in contact.html that need fixing too. Let me fix everything:
-
-
-Verify current state of main.css
-Verify current state of main.css
-Good, main.css is correct. Now the real fix — adding a cache-busting version number to the CSS link in ALL HTML files, so the browser is forced to load the new CSS:
-
-
-Add cache-busting query string to all CSS links
-Add cache-busting query string to all CSS links
-Now fix the errors I spotted in contact.html:
-
-
-Ran 2 commands, read a file
-Ran 2 commands, read a file
-Here are all 7 updated files. Here's what was fixed:
-
-Font fix: Added ?v=2 to the CSS link in all HTML files — this forces the browser to load the fresh CSS instead of the cached old one. This was the main reason Calibri wasn't showing.
-
-contact.html bugs fixed:
-
-GitHub link had wrong target attribute (target="sahiliitj" → target="_blank")
-Second email card was showing the wrong email display value
-Upload to GitHub:
-Upload these files keeping the folder structure:
-
-main.css → goes in css/ folder
-index.html → goes in root
-All other .html files → go in pages/ folder
-After uploading, wait 2 mins then hard refresh with Ctrl + Shift + R — Calibri will show up! ✅
-
-
-Main
-Code · CSS 
-
-Index
-Code · HTML 
-
-Contact
-Code · HTML 
-
-About
-Code · HTML 
-
-Experience
-Code · HTML 
-
-Research
-Code · HTML 
-
-Achievements
-Code · HTML 
-
-Want to be notified when Claude responds?
-
-
-
-Claude is AI and can make mistakes. Please double-check responses.
-Index · HTML
-Copy
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -513,7 +51,7 @@ Copy
   max-width: 540px; margin-bottom: 40px;
 }
 .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
- 
+
 /* Profile Card */
 .profile-card {
   background: var(--surface);
@@ -591,7 +129,7 @@ Copy
   border-radius: 100px; font-family: var(--font-mono); font-size: 11px; color: var(--cyan);
 }
 .profile-status .dot { width:6px;height:6px;border-radius:50%;background:var(--cyan);animation:blink 1.6s infinite; }
- 
+
 /* Quick Stats Bar */
 .stats-bar {
   background: var(--bg2);
@@ -612,7 +150,7 @@ Copy
   font-family: var(--font-mono); font-size: 11px; color: var(--text3);
   text-transform: uppercase; letter-spacing: 0.1em; margin-top: 4px;
 }
- 
+
 /* Skills Preview */
 .skills-scroll {
   display: flex; gap: 12px; flex-wrap: wrap; margin-top: 40px;
@@ -627,7 +165,7 @@ Copy
 }
 .skill-chip:hover { border-color: var(--accent); color: var(--text); transform: translateY(-2px); }
 .skill-chip .dot { width:8px;height:8px;border-radius:50%;flex-shrink:0; }
- 
+
 /* Page Teaser Cards */
 .pages-grid {
   display: grid;
@@ -661,7 +199,7 @@ Copy
   color: var(--text); margin-bottom: 8px;
 }
 .page-card-desc { font-size: 14px; color: var(--text3); line-height: 1.6; }
- 
+
 @media(max-width:900px){
   .hero-inner { grid-template-columns:1fr; }
   .profile-card { max-width:320px; margin:0 auto; }
@@ -675,13 +213,13 @@ Copy
   document.write(getNavHTML(''));
   document.write(getAddPageModalHTML());
 </script>
- 
+
 <div class="page-content">
   <!-- ORBs -->
   <div class="orb orb-accent" style="width:600px;height:600px;top:-200px;left:-200px;"></div>
   <div class="orb orb-cyan"   style="width:400px;height:400px;top:200px;right:-150px;"></div>
   <div class="orb orb-pink"   style="width:300px;height:300px;bottom:100px;left:20%;"></div>
- 
+
   <!-- HERO -->
   <section class="hero">
     <div class="container">
@@ -718,7 +256,7 @@ Copy
             </a>
           </div>
         </div>
- 
+
         <!-- Profile Card -->
         <div class="anim-fade-up-4">
           <div class="profile-card">
@@ -744,7 +282,7 @@ Copy
       </div>
     </div>
   </section>
- 
+
   <!-- STATS BAR -->
   <div class="stats-bar">
     <div class="container">
@@ -768,7 +306,7 @@ Copy
       </div>
     </div>
   </div>
- 
+
   <!-- SKILLS -->
   <section class="section">
     <div class="container">
@@ -797,7 +335,7 @@ Copy
       </div>
     </div>
   </section>
- 
+
   <!-- PAGES OVERVIEW -->
   <section class="section" style="padding-top:0;">
     <div class="container">
@@ -850,9 +388,8 @@ Copy
     </div>
   </section>
 </div>
- 
+
 <script>document.write(getFooterHTML(''));</script>
 <script src="js/main.js"></script>
 </body>
 </html>
- 
