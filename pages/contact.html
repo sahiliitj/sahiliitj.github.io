@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — Sahil Sharma</title>
+<link rel="stylesheet" href="../css/main.css">
+<style>
+.contact-hero { padding: 100px 0 80px; }
+.contact-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 60px; margin-top: 48px; align-items: start; }
+.connect-options { display: flex; flex-direction: column; gap: 14px; margin-bottom: 40px; }
+.connect-card {
+  display: flex; align-items: center; gap: 16px;
+  background: var(--surface); border: 1px solid var(--border2); border-radius: var(--radius);
+  padding: 18px 20px; text-decoration: none; color: inherit;
+  transition: all 0.25s; cursor: pointer;
+}
+.connect-card:hover { border-color: var(--accent); transform: translateX(4px); }
+.connect-icon {
+  width: 44px; height: 44px; border-radius: 12px; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+}
+.connect-icon svg { width: 22px; height: 22px; }
+.connect-label { font-family: var(--font-mono); font-size: 11px; color: var(--text3); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 2px; }
+.connect-value { font-size: 14px; color: var(--text); font-weight: 500; }
+.connect-arrow { margin-left: auto; color: var(--text3); font-size: 18px; transition: transform 0.2s; }
+.connect-card:hover .connect-arrow { transform: translateX(4px); color: var(--accent2); }
+.availability-box {
+  background: rgba(34,211,238,0.06); border: 1px solid rgba(34,211,238,0.2);
+  border-radius: var(--radius); padding: 20px 24px;
+}
+.availability-title { font-family: var(--font-mono); font-size: 12px; color: var(--cyan); margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.1em; }
+.availability-items { display: flex; flex-direction: column; gap: 8px; }
+.availability-item { display: flex; align-items: center; gap: 10px; font-size: 13px; color: var(--text2); }
+.availability-item::before { content: '✓'; color: var(--cyan); font-weight: 700; }
+
+/* Contact Form */
+.contact-form {
+  background: var(--surface); border: 1px solid var(--border2);
+  border-radius: var(--radius-lg); padding: 36px;
+}
+.form-title { font-family: var(--font-display); font-size: 22px; font-weight: 700; margin-bottom: 6px; }
+.form-subtitle { font-size: 14px; color: var(--text2); margin-bottom: 28px; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.form-success {
+  display: none; text-align: center; padding: 40px 20px;
+  animation: fadeUp 0.5s ease both;
+}
+.form-success .success-icon {
+  width: 64px; height: 64px; border-radius: 50%;
+  background: rgba(34,211,238,0.1); border: 2px solid var(--cyan);
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 16px; font-size: 28px;
+}
+@media(max-width:900px){ .contact-grid { grid-template-columns:1fr; } }
+@media(max-width:600px){ .form-row { grid-template-columns:1fr; } }
+</style>
+</head>
+<body>
+<script src="../js/components.js"></script>
+<script>document.write(getNavHTML('../')); document.write(getAddPageModalHTML());</script>
+<div class="page-content">
+<div class="orb orb-accent" style="width:500px;height:500px;top:0;right:-200px;"></div>
+<div class="orb orb-cyan" style="width:350px;height:350px;bottom:200px;left:-100px;"></div>
+
+<section class="contact-hero">
+  <div class="container">
+    <div class="section-eyebrow" data-reveal>Let's connect</div>
+    <h1 class="section-title" data-reveal>Get in <span class="highlight">touch</span></h1>
+    <p class="section-sub" data-reveal data-delay="0.1s">
+      Open to research collaborations, AI engineering roles, mentorship, or just a great conversation about the future of intelligence.
+    </p>
+
+    <div class="contact-grid">
+      <!-- LEFT: Connect options -->
+      <div data-reveal>
+        <div class="connect-options">
+          <a href="https://www.linkedin.com/in/sahil-sharma-2251b715b/" target="_blank" class="connect-card">
+            <div class="connect-icon" style="background:rgba(99,102,241,0.12);">
+              <svg viewBox="0 0 24 24" fill="currentColor" style="color:#818cf8"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+            </div>
+            <div><div class="connect-label">LinkedIn</div><div class="connect-value">sahil-sharma-2251b715b</div></div>
+            <div class="connect-arrow">→</div>
+          </a>
+          <a href="mailto:sahilsharma@iitj.ac.in" class="connect-card">
+            <div class="connect-icon" style="background:rgba(34,211,238,0.1);">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#22d3ee" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div><div class="connect-label">Email</div><div class="connect-value">sahilsharma@iitj.ac.in</div></div>
+            <div class="connect-arrow">→</div>
+          </a>
+          <a href="https://github.com/" target="_blank" class="connect-card">
+            <div class="connect-icon" style="background:rgba(255,255,255,0.06);">
+              <svg viewBox="0 0 24 24" fill="currentColor" style="color:#e2e8f0"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+            </div>
+            <div><div class="connect-label">GitHub</div><div class="connect-value">View my code &amp; projects</div></div>
+            <div class="connect-arrow">→</div>
+          </a>
+          <a href="https://scholar.google.com/" target="_blank" class="connect-card">
+            <div class="connect-icon" style="background:rgba(251,191,36,0.1);">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+            </div>
+            <div><div class="connect-label">Google Scholar</div><div class="connect-value">Research publications</div></div>
+            <div class="connect-arrow">→</div>
+          </a>
+          <a href="https://twitter.com/" target="_blank" class="connect-card">
+            <div class="connect-icon" style="background:rgba(99,102,241,0.08);">
+              <svg viewBox="0 0 24 24" fill="currentColor" style="color:#a5b4fc"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </div>
+            <div><div class="connect-label">Twitter / X</div><div class="connect-value">Follow for AI updates</div></div>
+            <div class="connect-arrow">→</div>
+          </a>
+        </div>
+
+        <div class="availability-box">
+          <div class="availability-title">Currently open to</div>
+          <div class="availability-items">
+            <div class="availability-item">Gen AI / ML Engineering roles</div>
+            <div class="availability-item">Research collaborations</div>
+            <div class="availability-item">Remote &amp; Hybrid positions</div>
+            <div class="availability-item">Conference talks &amp; workshops</div>
+            <div class="availability-item">Consulting &amp; advisory</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: Contact Form -->
+      <div class="contact-form" data-reveal data-delay="0.15s">
+        <div id="form-body">
+          <div class="form-title">Send a message</div>
+          <div class="form-subtitle">I usually respond within 24 hours.</div>
+          <div class="form-group form-row">
+            <div>
+              <label class="form-label" for="cf-name">Your name</label>
+              <input class="form-input" id="cf-name" placeholder="Arjun Kumar">
+            </div>
+            <div>
+              <label class="form-label" for="cf-email">Email address</label>
+              <input class="form-input" id="cf-email" type="email" placeholder="you@email.com">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="cf-subject">Subject</label>
+            <select class="form-select" id="cf-subject">
+              <option value="">Select a topic...</option>
+              <option>Research collaboration</option>
+              <option>Job opportunity</option>
+              <option>Project discussion</option>
+              <option>Just saying hello</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="cf-msg">Message</label>
+            <textarea class="form-textarea" id="cf-msg" rows="5" placeholder="Tell me about what you have in mind..."></textarea>
+          </div>
+          <button class="btn btn-primary" id="cf-submit" style="width:100%;justify-content:center;margin-top:4px;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            Send message
+          </button>
+          <p style="font-size:12px;color:var(--text3);text-align:center;margin-top:12px;font-family:var(--font-mono);">
+            Or email directly: <a href="mailto:sahilsharma@iitj.ac.in" style="color:var(--accent2);">sahilsharma@iitj.ac.in</a>
+          </p>
+        </div>
+        <div class="form-success" id="form-success">
+          <div class="success-icon">✦</div>
+          <div style="font-family:var(--font-display);font-size:22px;font-weight:700;margin-bottom:10px;">Message received!</div>
+          <p style="font-size:14px;color:var(--text2);line-height:1.7;">Thanks for reaching out. I'll get back to you soon. In the meantime, feel free to connect on LinkedIn.</p>
+          <a href="https://www.linkedin.com/in/sahil-sharma-2251b715b/" target="_blank" class="btn btn-primary" style="margin-top:20px;display:inline-flex;">Connect on LinkedIn</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</div>
+<script>document.write(getFooterHTML('../'));</script>
+<script src="../js/main.js"></script>
+<script>
+document.getElementById('cf-submit').addEventListener('click', () => {
+  const name = document.getElementById('cf-name').value.trim();
+  const email = document.getElementById('cf-email').value.trim();
+  const msg = document.getElementById('cf-msg').value.trim();
+  if (!name || !email || !msg) {
+    showToast('Please fill in your name, email, and message.'); return;
+  }
+  document.getElementById('form-body').style.display = 'none';
+  document.getElementById('form-success').style.display = 'block';
+  showToast('Message sent! Sahil will be in touch soon.');
+});
+</script>
+</body>
+</html>

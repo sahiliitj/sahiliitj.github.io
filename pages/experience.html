@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Experience — Sahil Sharma</title>
+<link rel="stylesheet" href="../css/main.css">
+<style>
+.exp-hero { padding: 100px 0 60px; }
+.timeline { display: flex; flex-direction: column; gap: 0; margin-top: 48px; }
+.tl-item {
+  display: grid; grid-template-columns: 220px 1px 1fr;
+  gap: 0 40px; padding-bottom: 56px;
+  opacity: 0; transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.tl-item.visible { opacity: 1; transform: translateY(0); }
+.tl-date {
+  text-align: right; padding-top: 2px;
+  font-family: var(--font-mono); font-size: 12px; color: var(--text3); line-height: 1.7;
+}
+.tl-date strong { display: block; font-size: 14px; color: var(--text2); font-weight: 500; margin-bottom: 4px; }
+.tl-type { display: inline-block; margin-top: 6px; }
+.tl-line { display: flex; flex-direction: column; align-items: center; }
+.tl-dot {
+  width: 14px; height: 14px; border-radius: 50%;
+  background: var(--accent); flex-shrink: 0;
+  margin-top: 2px; border: 3px solid var(--bg);
+  box-shadow: 0 0 0 3px rgba(99,102,241,0.25);
+  transition: box-shadow 0.3s;
+}
+.tl-item:hover .tl-dot { box-shadow: 0 0 0 6px rgba(99,102,241,0.2), 0 0 16px rgba(99,102,241,0.4); animation: glow 2s infinite; }
+.tl-connector { flex: 1; width: 1px; background: var(--border2); margin-top: 10px; }
+.tl-item:last-child .tl-connector { display: none; }
+.tl-content {
+  background: var(--surface); border: 1px solid var(--border2);
+  border-radius: var(--radius-lg); padding: 28px;
+  transition: border-color 0.3s; margin-bottom: 32px;
+}
+.tl-item:hover .tl-content { border-color: var(--border); }
+.tl-org {
+  font-family: var(--font-mono); font-size: 12px; color: var(--cyan);
+  letter-spacing: 0.05em; margin-bottom: 6px;
+  display: flex; align-items: center; gap: 8px;
+}
+.tl-org a { color: inherit; text-decoration: none; }
+.tl-org a:hover { color: var(--cyan2); }
+.tl-role {
+  font-family: var(--font-display); font-size: 20px; font-weight: 700;
+  color: var(--text); margin-bottom: 12px;
+}
+.tl-desc { font-size: 14px; color: var(--text2); line-height: 1.8; margin-bottom: 16px; }
+.tl-tags { display: flex; gap: 8px; flex-wrap: wrap; }
+.skills-used-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 16px; margin-top: 48px; }
+.skills-used-card {
+  background: var(--surface); border: 1px solid var(--border2); border-radius: var(--radius); padding: 20px;
+  display: flex; align-items: center; gap: 14px;
+}
+.skills-used-card svg { width: 22px; height: 22px; flex-shrink: 0; }
+@media(max-width:768px){
+  .tl-item { grid-template-columns: 90px 1px 1fr; gap: 0 20px; }
+  .tl-date strong { font-size: 12px; }
+}
+</style>
+</head>
+<body>
+<script src="../js/components.js"></script>
+<script>document.write(getNavHTML('../')); document.write(getAddPageModalHTML());</script>
+<div class="page-content">
+<div class="orb orb-cyan" style="width:500px;height:500px;top:0;left:-200px;"></div>
+
+<section class="exp-hero">
+  <div class="container">
+    <div class="section-eyebrow" data-reveal>Career</div>
+    <h1 class="section-title" data-reveal>Work <span class="highlight">Experience</span></h1>
+    <p class="section-sub" data-reveal data-delay="0.1s">
+      From research labs to product teams — a journey through AI, data science, and applied mathematics.
+    </p>
+
+    <div class="timeline" id="timeline">
+
+      <div class="tl-item" data-tl>
+        <div class="tl-date">
+          <strong>2025 – Present</strong>
+          Full-time · Delhi NCR
+          <span class="tl-type"><span class="tag tag-accent">Current</span></span>
+        </div>
+        <div class="tl-line"><div class="tl-dot"></div><div class="tl-connector"></div></div>
+        <div class="tl-content">
+          <div class="tl-org">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
+            Axtria — Ingenious Insights
+          </div>
+          <div class="tl-role">Gen AI Developer</div>
+          <div class="tl-desc">
+            Building and deploying generative AI solutions for pharma commercial analytics at one of the world's leading life sciences analytics companies (Frost &amp; Sullivan Global Company of the Year 2025). Developing LLM-powered tools, agentic pipelines, and RAG systems. Recognised as <strong>Top Performer</strong> in the Campus Training Program 2025 out of the entire national cohort.
+          </div>
+          <div class="tl-tags">
+            <span class="tag tag-accent">Generative AI</span>
+            <span class="tag tag-cyan">LLMs</span>
+            <span class="tag tag-cyan">RAG</span>
+            <span class="tag tag-accent">Python</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item" data-tl>
+        <div class="tl-date">
+          <strong>2024</strong>
+          Research Internship
+          <span class="tl-type"><span class="tag tag-pink">Research</span></span>
+        </div>
+        <div class="tl-line"><div class="tl-dot"></div><div class="tl-connector"></div></div>
+        <div class="tl-content">
+          <div class="tl-org">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+            Google Research &amp; IIT Roorkee · CSR Program
+          </div>
+          <div class="tl-role">Research Intern — Google CSR (Top 50 India)</div>
+          <div class="tl-desc">
+            Competitively selected among the <strong>Top 50 students across India</strong> for the Google Explore CSR Program. Worked on advanced image regeneration models and generative deep learning research in collaboration with IIT Roorkee. Won <strong>1st place</strong> in the Google Research poster presentation. Also selected for IISER Thiruvananthapuram Workshop (Top 25 India).
+          </div>
+          <div class="tl-tags">
+            <span class="tag tag-pink">Computer Vision</span>
+            <span class="tag tag-cyan">Diffusion Models</span>
+            <span class="tag tag-accent">Deep Learning</span>
+            <span class="tag tag-gold">1st Place Poster</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item" data-tl>
+        <div class="tl-date">
+          <strong>2023 – 2024</strong>
+          Research Internship
+          <span class="tl-type"><span class="tag tag-pink">Research</span></span>
+        </div>
+        <div class="tl-line"><div class="tl-dot"></div><div class="tl-connector"></div></div>
+        <div class="tl-content">
+          <div class="tl-org">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            IRDE, DRDO — Government of India
+          </div>
+          <div class="tl-role">Research Intern — Image Processing</div>
+          <div class="tl-desc">
+            Conducted defence-grade research on <strong>image denoising algorithms</strong> at the Instruments Research &amp; Development Establishment under DRDO (Defence Research and Development Organisation). Applied advanced signal processing and deep learning techniques to real-world defence imaging challenges.
+          </div>
+          <div class="tl-tags">
+            <span class="tag tag-pink">Image Denoising</span>
+            <span class="tag tag-cyan">Signal Processing</span>
+            <span class="tag tag-accent">Deep Learning</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item" data-tl>
+        <div class="tl-date">
+          <strong>2022 – 2025</strong>
+          Academic Role
+          <span class="tl-type"><span class="tag tag-cyan">Teaching</span></span>
+        </div>
+        <div class="tl-line"><div class="tl-dot"></div><div class="tl-connector"></div></div>
+        <div class="tl-content">
+          <div class="tl-org">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+            Indian Institute of Technology Jodhpur
+          </div>
+          <div class="tl-role">Teaching Assistant — 3 Courses</div>
+          <div class="tl-desc">
+            TA for three core courses: <strong>Optimisation for Data Science</strong>, <strong>Data Structures &amp; Algorithms</strong>, and <strong>Probability, Statistics &amp; Stochastic Processes</strong>. Supported hundreds of students through problem sets, doubt sessions, and lab sessions over 3 years.
+          </div>
+          <div class="tl-tags">
+            <span class="tag tag-cyan">Optimisation</span>
+            <span class="tag tag-accent">DSA</span>
+            <span class="tag tag-accent">Statistics</span>
+            <span class="tag tag-cyan">Stochastic Processes</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item" data-tl>
+        <div class="tl-date">
+          <strong>2021 – 2023</strong>
+          Freelance
+          <span class="tl-type"><span class="tag tag-gold">Freelance</span></span>
+        </div>
+        <div class="tl-line"><div class="tl-dot"></div><div class="tl-connector"></div></div>
+        <div class="tl-content">
+          <div class="tl-org">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+            Chegg
+          </div>
+          <div class="tl-role">Subject Matter Expert — Mathematics</div>
+          <div class="tl-desc">
+            Authored detailed, step-by-step solutions for advanced mathematics problems — calculus, linear algebra, probability theory, real analysis, and discrete mathematics — for students worldwide. Recognised for accuracy and clarity of explanation.
+          </div>
+          <div class="tl-tags">
+            <span class="tag tag-gold">Mathematics</span>
+            <span class="tag tag-gold">Linear Algebra</span>
+            <span class="tag tag-gold">Calculus</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+</div>
+<script>document.write(getFooterHTML('../'));</script>
+<script src="../js/main.js"></script>
+<script>
+const items = document.querySelectorAll('[data-tl]');
+const obs = new IntersectionObserver(entries => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) {
+      setTimeout(() => e.target.classList.add('visible'), i * 100);
+      obs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.1 });
+items.forEach(el => obs.observe(el));
+</script>
+</body>
+</html>

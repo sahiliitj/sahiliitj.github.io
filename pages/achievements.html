@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Achievements — Sahil Sharma</title>
+<link rel="stylesheet" href="../css/main.css">
+<style>
+.ach-hero { padding: 100px 0 60px; }
+.ach-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; margin-top: 48px; }
+.ach-card {
+  background: var(--surface); border: 1px solid var(--border2);
+  border-radius: var(--radius-lg); padding: 28px; transition: all 0.3s;
+  position: relative; overflow: hidden;
+}
+.ach-card:hover { border-color: var(--border); transform: translateY(-4px); }
+.ach-rank {
+  position: absolute; top: 16px; right: 16px;
+  font-family: var(--font-mono); font-size: 10px; color: var(--text3);
+}
+.ach-icon {
+  width: 48px; height: 48px; border-radius: 14px; margin-bottom: 16px;
+  display: flex; align-items: center; justify-content: center;
+}
+.ach-icon svg { width: 24px; height: 24px; }
+.ach-title { font-family: var(--font-display); font-size: 17px; font-weight: 700; color: var(--text); margin-bottom: 8px; line-height: 1.3; }
+.ach-desc { font-size: 13px; color: var(--text3); line-height: 1.6; margin-bottom: 14px; }
+.edu-section { margin-top: 80px; }
+.edu-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 20px; margin-top: 40px; }
+.edu-card {
+  background: var(--surface); border: 1px solid var(--border2); border-radius: var(--radius-lg); padding: 32px; transition: all 0.3s;
+  border-left: 3px solid var(--accent);
+}
+.edu-card:hover { border-color: var(--accent); }
+.edu-degree { font-family: var(--font-display); font-size: 20px; font-weight: 700; color: var(--text); margin-bottom: 6px; }
+.edu-inst { font-size: 14px; color: var(--accent2); font-weight: 500; margin-bottom: 4px; }
+.edu-year { font-family: var(--font-mono); font-size: 12px; color: var(--text3); margin-bottom: 12px; }
+.edu-note { font-size: 13px; color: var(--text3); line-height: 1.6; }
+.cert-list { display: flex; flex-direction: column; gap: 12px; margin-top: 40px; }
+.cert-item {
+  display: flex; align-items: center; gap: 16px;
+  background: var(--surface); border: 1px solid var(--border2); border-radius: var(--radius);
+  padding: 16px 20px; transition: border-color 0.2s;
+}
+.cert-item:hover { border-color: var(--border); }
+.cert-badge {
+  width: 40px; height: 40px; border-radius: 10px; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-mono); font-size: 12px; font-weight: 700;
+}
+.cert-name { font-size: 14px; color: var(--text); font-weight: 500; }
+.cert-issuer { font-size: 12px; color: var(--text3); margin-top: 2px; }
+</style>
+</head>
+<body>
+<script src="../js/components.js"></script>
+<script>document.write(getNavHTML('../')); document.write(getAddPageModalHTML());</script>
+<div class="page-content">
+<div class="orb orb-accent" style="width:500px;height:500px;top:0;right:-200px;"></div>
+
+<section class="ach-hero">
+  <div class="container">
+    <div class="section-eyebrow" data-reveal>Honours &amp; Recognition</div>
+    <h1 class="section-title" data-reveal>Achievements &amp; <span class="highlight">Awards</span></h1>
+    <p class="section-sub" data-reveal data-delay="0.1s">
+      Recognition from Google, DRDO, IIT Jodhpur, and leading academic institutions.
+    </p>
+    <div class="ach-grid">
+      <div class="ach-card" data-reveal>
+        <div class="ach-rank">01</div>
+        <div class="ach-icon" style="background:rgba(251,191,36,0.12);">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="2"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
+        </div>
+        <div class="ach-title">Top Performer — Campus Training 2025</div>
+        <div class="ach-desc">Awarded by Axtria for consistently outstanding performance throughout the national campus training program.</div>
+        <span class="tag tag-gold">Axtria · 2025</span>
+      </div>
+      <div class="ach-card" data-reveal data-delay="0.05s">
+        <div class="ach-rank">02</div>
+        <div class="ach-icon" style="background:rgba(34,211,238,0.1);">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#22d3ee" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <div class="ach-title">1st Place — Google Research Poster</div>
+        <div class="ach-desc">Won first place in the poster presentation at the Google Research &amp; IIT Roorkee CSR collaboration event.</div>
+        <span class="tag tag-cyan">Google Research · 2024</span>
+      </div>
+      <div class="ach-card" data-reveal data-delay="0.1s">
+        <div class="ach-rank">03</div>
+        <div class="ach-icon" style="background:rgba(244,114,182,0.1);">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#f472b6" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <div class="ach-title">Google CSR — Top 50 in India</div>
+        <div class="ach-desc">Competitively selected among the top 50 students nationwide for the prestigious Google Explore CSR Program.</div>
+        <span class="tag tag-pink">Google · 2024</span>
+      </div>
+      <div class="ach-card" data-reveal data-delay="0.15s">
+        <div class="ach-rank">04</div>
+        <div class="ach-icon" style="background:rgba(34,211,238,0.1);">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#22d3ee" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        </div>
+        <div class="ach-title">IISER TVM Workshop — Top 25 in India</div>
+        <div class="ach-desc">One of only 25 students nationally selected for the IISER Thiruvananthapuram research workshop.</div>
+        <span class="tag tag-cyan">IISER TVM · 2024</span>
+      </div>
+      <div class="ach-card" data-reveal data-delay="0.2s">
+        <div class="ach-rank">05</div>
+        <div class="ach-icon" style="background:rgba(99,102,241,0.12);">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#818cf8" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        </div>
+        <div class="ach-title">Department Rank 1 — IIT Jodhpur</div>
+        <div class="ach-desc">Achieved rank 1 in the M.Sc-M.Tech dual degree program in Data &amp; Computational Science.</div>
+        <span class="tag tag-accent">IIT Jodhpur</span>
+      </div>
+      <div class="ach-card" data-reveal data-delay="0.25s">
+        <div class="ach-rank">06</div>
+        <div class="ach-icon" style="background:rgba(251,191,36,0.1);">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+        </div>
+        <div class="ach-title">GATE 2024 — Data Science &amp; AI</div>
+        <div class="ach-desc">Qualified GATE 2024 in Data Science &amp; Artificial Intelligence — one of India's most competitive national exams.</div>
+        <span class="tag tag-gold">GATE 2024</span>
+      </div>
+      <div class="ach-card" data-reveal data-delay="0.3s">
+        <div class="ach-rank">07</div>
+        <div class="ach-icon" style="background:rgba(251,191,36,0.1);">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+        </div>
+        <div class="ach-title">GATE 2023 — Mathematics</div>
+        <div class="ach-desc">Qualified GATE 2023 in Mathematics — demonstrating excellence across two distinct engineering disciplines.</div>
+        <span class="tag tag-gold">GATE 2023</span>
+      </div>
+      <div class="ach-card" data-reveal data-delay="0.35s">
+        <div class="ach-rank">08</div>
+        <div class="ach-icon" style="background:rgba(244,114,182,0.1);">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#f472b6" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+        </div>
+        <div class="ach-title">Book Chapter — CRC Press, Taylor &amp; Francis USA</div>
+        <div class="ach-desc">Authored a peer-reviewed chapter in a globally respected academic publisher based in the USA.</div>
+        <span class="tag tag-pink">Published · CRC Press</span>
+      </div>
+    </div>
+
+    <!-- EDUCATION -->
+    <div class="edu-section">
+      <div class="section-eyebrow" data-reveal>Academic background</div>
+      <h2 class="section-title" data-reveal><span class="highlight">Education</span></h2>
+      <div class="edu-grid">
+        <div class="edu-card" data-reveal>
+          <div class="edu-degree">M.Sc + M.Tech (Dual Degree)</div>
+          <div class="edu-inst">Indian Institute of Technology Jodhpur</div>
+          <div class="edu-year">Data &amp; Computational Science · 2020 – 2025</div>
+          <div class="edu-note">Department Rank 1 · Teaching Assistant · Quantum ML Research · Book Publication</div>
+        </div>
+        <div class="edu-card" data-reveal data-delay="0.1s">
+          <div class="edu-degree">B.Sc — Non-Medical</div>
+          <div class="edu-inst">Mukand Lal National College, Yamunanagar</div>
+          <div class="edu-year">Physics · Chemistry · Mathematics · 2017 – 2020</div>
+          <div class="edu-note">Strong foundation in pure sciences and advanced mathematics</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CERTIFICATIONS -->
+    <div style="margin-top:60px;">
+      <div class="section-eyebrow" data-reveal>Credentials</div>
+      <h2 class="section-title" data-reveal><span class="highlight">Certifications</span></h2>
+      <div class="cert-list">
+        <div class="cert-item" data-reveal>
+          <div class="cert-badge" style="background:rgba(34,211,238,0.12);color:#22d3ee;">IBM</div>
+          <div><div class="cert-name">IBM Data Science Professional Certificate</div><div class="cert-issuer">IBM · Coursera</div></div>
+        </div>
+        <div class="cert-item" data-reveal data-delay="0.05s">
+          <div class="cert-badge" style="background:rgba(251,191,36,0.12);color:#fbbf24;">G</div>
+          <div><div class="cert-name">Google Data Analytics Certificate</div><div class="cert-issuer">Google · Coursera</div></div>
+        </div>
+        <div class="cert-item" data-reveal data-delay="0.1s">
+          <div class="cert-badge" style="background:rgba(99,102,241,0.12);color:#818cf8;">IBM</div>
+          <div><div class="cert-name">Machine Learning with Python</div><div class="cert-issuer">IBM · Coursera</div></div>
+        </div>
+        <div class="cert-item" data-reveal data-delay="0.15s">
+          <div class="cert-badge" style="background:rgba(251,191,36,0.12);color:#fbbf24;">G</div>
+          <div><div class="cert-name">Data Visualization with Google Tools</div><div class="cert-issuer">Google · Coursera</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</div>
+<script>document.write(getFooterHTML('../'));</script>
+<script src="../js/main.js"></script>
+</body>
+</html>

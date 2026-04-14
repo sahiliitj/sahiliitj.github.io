@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — Sahil Sharma</title>
+<link rel="stylesheet" href="../css/main.css">
+<style>
+.about-hero { padding: 100px 0 60px; }
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; margin-top: 48px; }
+.about-bio { font-size: 16px; color: var(--text2); line-height: 1.9; }
+.about-bio p { margin-bottom: 20px; }
+.about-bio strong { color: var(--accent2); font-weight: 500; }
+.about-facts { display: flex; flex-direction: column; gap: 16px; }
+.fact-row {
+  display: flex; align-items: flex-start; gap: 16px;
+  background: var(--surface); border: 1px solid var(--border2);
+  border-radius: var(--radius); padding: 18px 20px;
+  transition: border-color 0.2s;
+}
+.fact-row:hover { border-color: var(--border); }
+.fact-icon {
+  width: 40px; height: 40px; border-radius: 10px; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+}
+.fact-icon svg { width: 20px; height: 20px; }
+.fact-key { font-family: var(--font-mono); font-size: 11px; color: var(--text3); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 3px; }
+.fact-val { font-size: 14px; color: var(--text); font-weight: 500; }
+.interest-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; margin-top: 40px; }
+.interest-card {
+  background: var(--surface); border: 1px solid var(--border2);
+  border-radius: var(--radius-lg); padding: 24px;
+  transition: all 0.3s; text-align: center;
+}
+.interest-card:hover { border-color: var(--accent); transform: translateY(-3px); }
+.interest-icon { font-size: 32px; margin-bottom: 12px; display: block; }
+.interest-name { font-family: var(--font-display); font-size: 16px; font-weight: 600; color: var(--text); margin-bottom: 6px; }
+.interest-desc { font-size: 13px; color: var(--text3); line-height: 1.5; }
+@media(max-width:768px){ .about-grid { grid-template-columns:1fr; } }
+</style>
+</head>
+<body>
+<script src="../js/components.js"></script>
+<script>document.write(getNavHTML('../')); document.write(getAddPageModalHTML());</script>
+<div class="page-content">
+<div class="orb orb-accent" style="width:500px;height:500px;top:-100px;right:-200px;"></div>
+
+<section class="about-hero">
+  <div class="container">
+    <div class="section-eyebrow" data-reveal>Who I am</div>
+    <h1 class="section-title" data-reveal>About <span class="highlight">Sahil</span></h1>
+    <div class="about-grid">
+      <div class="about-bio" data-reveal>
+        <p>Hi! I'm <strong>Sahil Sharma</strong> — a Data &amp; Computational Science enthusiast pursuing my M.Sc-M.Tech dual degree at <strong>IIT Jodhpur</strong>. My work sits at the intersection of rigorous mathematics and modern AI, with a particular focus on <strong>Generative AI</strong> and <strong>Quantum Machine Learning</strong>.</p>
+        <p>I currently work as a <strong>Gen AI Developer at Axtria</strong>, where I build intelligent systems for pharma commercial analytics. I was recognised as <strong>Top Performer</strong> in the Campus Training Program 2025.</p>
+        <p>My research journey has taken me through <strong>Google Research &amp; IIT Roorkee</strong> (image regeneration models), <strong>IRDE, DRDO</strong> (image denoising for defence applications), and contributing to a <strong>book chapter published by CRC Press, Taylor &amp; Francis, USA</strong>.</p>
+        <p>I believe the most powerful AI systems are those built on a deep understanding of mathematics — probability, optimisation, stochastic processes — not just empirical tricks. That belief drives everything I build and research.</p>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:28px;">
+          <a href="experience.html" class="btn btn-primary">View my experience</a>
+          <a href="contact.html" class="btn btn-ghost">Say hello</a>
+        </div>
+      </div>
+      <div class="about-facts" data-reveal data-delay="0.15s">
+        <div class="fact-row">
+          <div class="fact-icon" style="background:rgba(99,102,241,0.12);">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#818cf8" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+          </div>
+          <div><div class="fact-key">Location</div><div class="fact-val">Yamunanagar, India · Open to Remote</div></div>
+        </div>
+        <div class="fact-row">
+          <div class="fact-icon" style="background:rgba(34,211,238,0.1);">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#22d3ee" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+          </div>
+          <div><div class="fact-key">Education</div><div class="fact-val">M.Sc + M.Tech (Dual) · IIT Jodhpur</div></div>
+        </div>
+        <div class="fact-row">
+          <div class="fact-icon" style="background:rgba(244,114,182,0.1);">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#f472b6" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
+          </div>
+          <div><div class="fact-key">Current Role</div><div class="fact-val">Gen AI Developer · Axtria</div></div>
+        </div>
+        <div class="fact-row">
+          <div class="fact-icon" style="background:rgba(251,191,36,0.1);">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <div><div class="fact-key">Key Achievement</div><div class="fact-val">Dept Rank 1 · Google CSR Top 50 India</div></div>
+        </div>
+        <div class="fact-row">
+          <div class="fact-icon" style="background:rgba(99,102,241,0.12);">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#a5b4fc" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <div><div class="fact-key">Email</div><div class="fact-val">sahilsharma@iitj.ac.in</div></div>
+        </div>
+        <div class="fact-row">
+          <div class="fact-icon" style="background:rgba(34,211,238,0.1);">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#22d3ee" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+          </div>
+          <div><div class="fact-key">Research Focus</div><div class="fact-val">Quantum ML · GenAI · Computer Vision</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0;">
+  <div class="container">
+    <div class="section-eyebrow" data-reveal>Interests</div>
+    <h2 class="section-title" data-reveal>What <span class="highlight">excites</span> me</h2>
+    <div class="interest-grid">
+      <div class="interest-card" data-reveal><span class="interest-icon">🤖</span><div class="interest-name">Generative AI</div><div class="interest-desc">LLMs, diffusion models, and multimodal systems</div></div>
+      <div class="interest-card" data-reveal data-delay="0.05s"><span class="interest-icon">⚛️</span><div class="interest-name">Quantum ML</div><div class="interest-desc">Variational circuits, quantum advantage in ML</div></div>
+      <div class="interest-card" data-reveal data-delay="0.1s"><span class="interest-icon">👁️</span><div class="interest-name">Computer Vision</div><div class="interest-desc">Image regeneration, denoising, synthesis</div></div>
+      <div class="interest-card" data-reveal data-delay="0.15s"><span class="interest-icon">📐</span><div class="interest-name">Mathematics</div><div class="interest-desc">Optimisation, probability, linear algebra</div></div>
+      <div class="interest-card" data-reveal data-delay="0.2s"><span class="interest-icon">📖</span><div class="interest-name">Teaching</div><div class="interest-desc">Making complex concepts accessible to all</div></div>
+      <div class="interest-card" data-reveal data-delay="0.25s"><span class="interest-icon">🔬</span><div class="interest-name">Research</div><div class="interest-desc">Publishing, collaborating, advancing knowledge</div></div>
+    </div>
+  </div>
+</section>
+</div>
+<script>document.write(getFooterHTML('../'));</script>
+<script src="../js/main.js"></script>
+</body>
+</html>
