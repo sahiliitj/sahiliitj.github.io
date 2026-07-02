@@ -61,6 +61,8 @@
   text-align: center;
   position: relative;
   animation: float 5s ease-in-out infinite;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  overflow: hidden;
 }
 .profile-card::before {
   content: '';
@@ -70,17 +72,28 @@
   z-index: -1;
   filter: blur(8px);
   opacity: 0.6;
+  transition: opacity 0.3s;
 }
+.profile-card:hover {
+  border-color: var(--cyan);
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(99,102,241,0.2), 0 0 40px rgba(34,211,238,0.1);
+}
+.profile-card:hover::before { opacity: 0.9; }
 .pfp-wrap {
   position: relative;
   width: 120px; height: 120px;
   margin: 0 auto 20px;
   cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
+.pfp-wrap:hover { transform: scale(1.08) rotateZ(3deg); }
 .pfp-img {
   width: 120px; height: 120px; border-radius: 50%;
   object-fit: cover; display: none;
   border: 3px solid var(--accent);
+  box-shadow: 0 0 24px rgba(99,102,241,0.5), inset 0 0 24px rgba(99,102,241,0.2);
+  animation: float 3.5s ease-in-out infinite;
 }
 .pfp-placeholder {
   width: 120px; height: 120px; border-radius: 50%;
@@ -89,16 +102,32 @@
   font-family: var(--font-display);
   font-size: 44px; font-weight: 800; color: #fff;
   border: 3px solid var(--accent);
+  box-shadow: 0 0 24px rgba(99,102,241,0.5);
+  animation: float 3.5s ease-in-out infinite;
+  position: relative;
+}
+.pfp-placeholder::after {
+  content: '';
+  position: absolute; inset: -4px;
+  border-radius: 50%;
+  background: conic-gradient(from 0deg, var(--accent), var(--cyan), var(--accent));
+  z-index: -1;
+  opacity: 0;
+  animation: pulse 2s ease-in-out infinite;
 }
 .pfp-upload-badge {
   position: absolute; bottom: 4px; right: 4px;
-  width: 32px; height: 32px; border-radius: 50%;
+  width: 36px; height: 36px; border-radius: 50%;
   background: var(--accent); border: 2px solid var(--bg);
   display: flex; align-items: center; justify-content: center;
   color: #fff; cursor: pointer;
-  transition: transform 0.2s;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 0 16px rgba(99,102,241,0.6);
 }
-.pfp-upload-badge:hover { transform: scale(1.1); }
+.pfp-upload-badge:hover { 
+  transform: scale(1.2) rotateZ(-20deg); 
+  box-shadow: 0 0 24px rgba(99,102,241,0.9), 0 0 40px rgba(34,211,238,0.4);
+}
 .pfp-upload-badge svg { width: 14px; height: 14px; }
 #pfp-upload { display: none; }
 .profile-card-name {
@@ -160,11 +189,27 @@
   padding: 8px 16px; border-radius: 100px;
   background: var(--surface); border: 1px solid var(--border2);
   font-size: 13px; color: var(--text2);
-  transition: all 0.25s; cursor: default;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1); 
+  cursor: default;
   white-space: nowrap;
+  position: relative;
+  overflow: hidden;
 }
-.skill-chip:hover { border-color: var(--accent); color: var(--text); transform: translateY(-2px); }
-.skill-chip .dot { width:8px;height:8px;border-radius:50%;flex-shrink:0; }
+.skill-chip::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(34,211,238,0.2), transparent);
+  transform: translateX(-100%);
+  transition: transform 0.5s ease;
+}
+.skill-chip:hover::before { transform: translateX(100%); }
+.skill-chip:hover { 
+  border-color: var(--accent); 
+  color: var(--text); 
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 8px 16px rgba(99,102,241,0.2);
+}
+.skill-chip .dot { width:8px;height:8px;border-radius:50%;flex-shrink:0; animation: pulse 2s ease-in-out infinite; }
 
 /* Page Teaser Cards */
 .pages-grid {
@@ -176,8 +221,16 @@
   display: block; text-decoration: none;
   background: var(--surface); border: 1px solid var(--border2);
   border-radius: var(--radius-lg); padding: 28px;
-  transition: all 0.3s; position: relative; overflow: hidden;
-  group: true;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); 
+  position: relative; overflow: hidden;
+  cursor: pointer;
+}
+.page-card::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(99,102,241,0.1), transparent);
+  opacity: 0;
+  transition: opacity 0.3s;
 }
 .page-card::after {
   content: '→';
@@ -185,20 +238,35 @@
   transform: translateY(-50%) translateX(8px);
   opacity: 0; color: var(--accent2);
   font-size: 20px; transition: all 0.3s;
+  font-weight: bold;
 }
-.page-card:hover { border-color: var(--accent); transform: translateY(-4px); }
+.page-card:hover { 
+  border-color: var(--accent); 
+  transform: translateY(-6px) scale(1.02); 
+  box-shadow: 0 16px 32px rgba(99,102,241,0.2);
+}
+.page-card:hover::before { opacity: 1; }
 .page-card:hover::after { opacity: 1; transform: translateY(-50%) translateX(0); }
 .page-card-icon {
-  width: 52px; height: 52px; border-radius: 14px;
+  width: 56px; height: 56px; border-radius: 14px;
   display: flex; align-items: center; justify-content: center;
   margin-bottom: 16px;
+  transition: all 0.3s;
+  animation: float 3s ease-in-out infinite;
 }
+.page-card:hover .page-card-icon { transform: scale(1.1) rotateZ(5deg); }
 .page-card-icon svg { width: 26px; height: 26px; }
 .page-card-title {
   font-family: var(--font-display); font-size: 18px; font-weight: 700;
   color: var(--text); margin-bottom: 8px;
+  transition: color 0.3s;
 }
-.page-card-desc { font-size: 14px; color: var(--text3); line-height: 1.6; }
+.page-card:hover .page-card-title { color: var(--accent2); }
+.page-card-desc { 
+  font-size: 14px; color: var(--text3); line-height: 1.6; 
+  transition: color 0.3s;
+}
+.page-card:hover .page-card-desc { color: var(--text2); }
 
 @media(max-width:900px){
   .hero-inner { grid-template-columns:1fr; }
@@ -362,21 +430,28 @@
           <div class="page-card-title">Research</div>
           <div class="page-card-desc">Agentic AI, Quantum ML, image denoising, generative models, and published work.</div>
         </a>
-        <a href="pages/achievements.html" class="page-card" data-reveal data-delay="0.15s">
+        <a href="pages/projects.html" class="page-card" data-reveal data-delay="0.15s">
+          <div class="page-card-icon" style="background:rgba(251,191,36,0.1);">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="1.8"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+          </div>
+          <div class="page-card-title">Projects</div>
+          <div class="page-card-desc">Machine learning and AI projects with detailed implementation, technologies, and real-world applications.</div>
+        </a>
+        <a href="pages/achievements.html" class="page-card" data-reveal data-delay="0.2s">
           <div class="page-card-icon" style="background:rgba(251,191,36,0.1);">
             <svg viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="1.8"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
           </div>
           <div class="page-card-title">Achievements</div>
           <div class="page-card-desc">Awards, recognitions, GATE qualifications, and top-rank distinctions.</div>
         </a>
-        <a href="pages/contact.html" class="page-card" data-reveal data-delay="0.2s">
+        <a href="pages/contact.html" class="page-card" data-reveal data-delay="0.25s">
           <div class="page-card-icon" style="background:rgba(99,102,241,0.12);">
             <svg viewBox="0 0 24 24" fill="none" stroke="#a5b4fc" stroke-width="1.8"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
           </div>
           <div class="page-card-title">Contact</div>
           <div class="page-card-desc">Reach out for collaborations, research, or just a conversation about AI.</div>
         </a>
-        <div class="page-card" id="add-page-trigger" style="cursor:pointer;border-style:dashed;" data-reveal data-delay="0.25s" onclick="document.getElementById('add-page-btn').click()">
+        <div class="page-card" id="add-page-trigger" style="cursor:pointer;border-style:dashed;" data-reveal data-delay="0.3s" onclick="document.getElementById('add-page-btn').click()">
           <div class="page-card-icon" style="background:rgba(99,102,241,0.08);">
             <svg viewBox="0 0 24 24" fill="none" stroke="#565878" stroke-width="1.8"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
           </div>

@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects — Sahil Sharma</title>
+  <link rel="stylesheet" href="../css/main.css">
+  <style>
+    /* Projects Page Styles */
+    .projects-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+    
+    .filter-tabs {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 48px;
+    }
+    
+    .filter-tab {
+      padding: 8px 20px;
+      border-radius: 100px;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--text2);
+      font-family: var(--font-mono);
+      font-size: 12px;
+      cursor: pointer;
+      transition: all 0.3s;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-weight: 500;
+    }
+    
+    .filter-tab:hover,
+    .filter-tab.active {
+      background: var(--accent);
+      color: white;
+      border-color: var(--accent);
+    }
+    
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+      gap: 28px;
+      margin-top: 48px;
+    }
+    
+    .project-card {
+      background: var(--surface);
+      border: 1px solid var(--border2);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      min-height: 480px;
+    }
+    
+    .project-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(99,102,241,0.05), transparent);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    
+    .project-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-6px);
+      box-shadow: 0 16px 32px rgba(99,102,241,0.2);
+    }
+    
+    .project-card:hover::before {
+      opacity: 1;
+    }
+    
+    .project-category {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      width: fit-content;
+      padding: 6px 12px;
+      border-radius: 8px;
+      background: rgba(99,102,241,0.12);
+      color: var(--accent2);
+      font-family: var(--font-mono);
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 16px;
+      font-weight: 600;
+    }
+    
+    .project-title {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 12px;
+      line-height: 1.3;
+      transition: color 0.3s;
+    }
+    
+    .project-card:hover .project-title {
+      color: var(--accent2);
+    }
+    
+    .project-summary {
+      font-size: 14px;
+      color: var(--text2);
+      line-height: 1.6;
+      margin-bottom: 20px;
+      flex-grow: 1;
+    }
+    
+    .project-section {
+      margin-bottom: 18px;
+    }
+    
+    .project-section-label {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: var(--cyan);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 8px;
+      display: block;
+      font-weight: 600;
+    }
+    
+    .skills-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+    
+    .skill-tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 5px 12px;
+      border-radius: 6px;
+      background: rgba(99,102,241,0.1);
+      color: var(--accent3);
+      font-family: var(--font-mono);
+      font-size: 10px;
+      border: 1px solid rgba(99,102,241,0.2);
+      transition: all 0.2s;
+    }
+    
+    .skill-tag:hover {
+      background: rgba(99,102,241,0.2);
+      border-color: rgba(99,102,241,0.4);
+      transform: translateY(-1px);
+    }
+    
+    .skill-tag.primary {
+      background: rgba(34,211,238,0.1);
+      color: var(--cyan2);
+      border-color: rgba(34,211,238,0.2);
+    }
+    
+    .use-case {
+      font-size: 13px;
+      color: var(--text3);
+      line-height: 1.6;
+      padding: 12px;
+      border-left: 3px solid var(--accent);
+      background: rgba(99,102,241,0.05);
+      border-radius: 4px;
+      margin-bottom: 20px;
+    }
+    
+    .project-footer {
+      display: flex;
+      gap: 12px;
+      margin-top: auto;
+      padding-top: 16px;
+      border-top: 1px solid var(--border2);
+    }
+    
+    .project-link {
+      flex: 1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 16px;
+      border-radius: 8px;
+      background: var(--surface2);
+      color: var(--accent2);
+      text-decoration: none;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      border: 1px solid var(--border);
+      transition: all 0.2s;
+      cursor: pointer;
+    }
+    
+    .project-link:hover {
+      background: var(--accent);
+      color: white;
+      border-color: var(--accent);
+      transform: translateY(-2px);
+    }
+    
+    .project-link svg {
+      width: 12px;
+      height: 12px;
+    }
+    
+    .stats-showcase {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      margin-bottom: 60px;
+      margin-top: 40px;
+    }
+    
+    .stat-card {
+      background: var(--surface);
+      border: 1px solid var(--border2);
+      border-radius: 12px;
+      padding: 24px;
+      text-align: center;
+      transition: all 0.3s;
+    }
+    
+    .stat-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-3px);
+    }
+    
+    .stat-number {
+      font-size: 42px;
+      font-weight: 800;
+      color: var(--accent2);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    
+    .stat-label {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--text3);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+    
+    .empty-state {
+      text-align: center;
+      padding: 60px 20px;
+      color: var(--text3);
+    }
+    
+    .empty-state-icon {
+      font-size: 48px;
+      margin-bottom: 16px;
+    }
+    
+    /* Animations */
+    .project-card {
+      animation: fadeUp 0.7s ease both;
+    }
+    
+    .project-card:nth-child(1) { animation-delay: 0s; }
+    .project-card:nth-child(2) { animation-delay: 0.1s; }
+    .project-card:nth-child(3) { animation-delay: 0.2s; }
+    .project-card:nth-child(4) { animation-delay: 0.3s; }
+    .project-card:nth-child(5) { animation-delay: 0.4s; }
+    .project-card:nth-child(6) { animation-delay: 0.5s; }
+    .project-card:nth-child(7) { animation-delay: 0.6s; }
+    .project-card:nth-child(8) { animation-delay: 0.7s; }
+    
+    @media(max-width: 900px) {
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .filter-tabs {
+        justify-content: flex-start;
+        overflow-x: auto;
+        padding-bottom: 8px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <script src="../js/components.js"></script>
+  <script>
+    document.write(getNavHTML('../'));
+  </script>
+
+  <div class="page-content">
+    <!-- HERO SECTION -->
+    <section class="section" style="padding-top: 120px; padding-bottom: 40px;">
+      <div class="container">
+        <div class="projects-header" data-reveal>
+          <div class="section-eyebrow" style="justify-content: center;">💻 Portfolio</div>
+          <h1 class="section-title" data-reveal>Projects &amp; <span class="highlight">Research</span></h1>
+          <p class="section-sub" data-reveal data-delay="0.1s">
+            A collection of machine learning, deep learning, and data science projects showcasing expertise in AI development, from generative models to medical imaging applications.
+          </p>
+        </div>
+        
+        <!-- STATS -->
+        <div class="stats-showcase" data-reveal data-delay="0.2s">
+          <div class="stat-card">
+            <div class="stat-number">8</div>
+            <div class="stat-label">ML/AI Projects</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">15+</div>
+            <div class="stat-label">Technologies</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">6</div>
+            <div class="stat-label">Focus Areas</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FILTER TABS -->
+    <section class="section" style="padding-top: 20px;">
+      <div class="container">
+        <div class="filter-tabs">
+          <button class="filter-tab active" onclick="filterProjects('all')">All Projects</button>
+          <button class="filter-tab" onclick="filterProjects('generative')">Generative Models</button>
+          <button class="filter-tab" onclick="filterProjects('vision')">Computer Vision</button>
+          <button class="filter-tab" onclick="filterProjects('nlp')">NLP & Audio</button>
+          <button class="filter-tab" onclick="filterProjects('unsupervised')">Unsupervised Learning</button>
+          <button class="filter-tab" onclick="filterProjects('applications')">Applications</button>
+        </div>
+
+        <!-- PROJECTS GRID -->
+        <div class="projects-grid" id="projects-container">
+          <!-- Projects will be populated by JavaScript -->
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    // Projects Data
+    const projectsData = [
+      {
+        id: 1,
+        title: "Wasserstein GAN with Gradient Penalty",
+        category: "generative",
+        summary: "Advanced GAN implementation using Wasserstein distance and gradient penalty for training stability and improved mode coverage in generative modeling.",
+        skills: ["PyTorch", "GANs", "Generative Models", "Deep Learning", "Mathematics"],
+        useCase: "High-quality synthetic data generation, image synthesis, and adversarial learning for improved model robustness in production systems."
+      },
+      {
+        id: 2,
+        title: "Audio Classification with Transformers",
+        category: "nlp",
+        summary: "State-of-the-art audio classification using Transformer neural networks for feature extraction and sequence modeling in audio data.",
+        skills: ["PyTorch Lightning", "Transformers", "Audio Processing", "Deep Learning", "NLP"],
+        useCase: "Real-time audio event detection, speech recognition systems, music genre classification, and acoustic anomaly detection."
+      },
+      {
+        id: 3,
+        title: "Image Classification with CNN",
+        category: "vision",
+        summary: "Comprehensive CNN implementation from scratch for image classification tasks with detailed loss tracking and performance metrics.",
+        skills: ["CNN", "TensorFlow", "Keras", "Computer Vision", "Deep Learning"],
+        useCase: "Real-world image recognition, object detection in surveillance, medical image analysis, and automated quality control systems."
+      },
+      {
+        id: 4,
+        title: "Vector Quantized Variational Autoencoder",
+        category: "generative",
+        summary: "VQ-VAE implementation for unsupervised learning and discrete representation learning with improved reconstruction quality.",
+        skills: ["VAE", "Autoencoders", "PyTorch", "Unsupervised Learning", "Representation Learning"],
+        useCase: "Data augmentation, anomaly detection, feature extraction, and learning meaningful representations for downstream ML tasks."
+      },
+      {
+        id: 5,
+        title: "Skin Lesion Segmentation via Transfer Learning",
+        category: "applications",
+        summary: "Medical image segmentation for skin cancer detection using transfer learning and pre-trained deep learning models for improved diagnosis.",
+        skills: ["Transfer Learning", "Medical Imaging", "Computer Vision", "Deep Learning", "Healthcare AI"],
+        useCase: "Dermatology support systems, early cancer detection, telemedicine applications, and clinical decision-making in healthcare."
+      },
+      {
+        id: 6,
+        title: "Neural Networks from Scratch",
+        category: "unsupervised",
+        summary: "Foundational implementation of neural networks using NumPy, covering forward/backward propagation, activation functions, and optimization.",
+        skills: ["NumPy", "Mathematics", "Backpropagation", "Deep Learning", "Python"],
+        useCase: "Educational resource for understanding ML fundamentals, prototyping custom architectures, and implementing specialized neural operations."
+      },
+      {
+        id: 7,
+        title: "From K-means to PCA & GMM",
+        category: "unsupervised",
+        summary: "Comprehensive exploration of unsupervised learning algorithms including K-means clustering, PCA dimensionality reduction, and GMM probability modeling.",
+        skills: ["Clustering", "PCA", "GMM", "Data Science", "Statistics"],
+        useCase: "Customer segmentation, dimensionality reduction for visualization, probabilistic clustering, and pattern discovery in unlabeled data."
+      },
+      {
+        id: 8,
+        title: "Predictive Analytics for Lending Decisions",
+        category: "applications",
+        summary: "ML model for credit risk assessment and lending decision prediction using classification algorithms and financial data analysis.",
+        skills: ["Classification", "Machine Learning", "Finance", "Data Science", "Predictive Analytics"],
+        useCase: "Automated loan approval systems, credit scoring, risk assessment for financial institutions, and fraud detection in lending."
+      }
+    ];
+
+    // Filter Function
+    function filterProjects(category) {
+      // Update active tab
+      document.querySelectorAll('.filter-tab').forEach(tab => tab.classList.remove('active'));
+      event.target.classList.add('active');
+
+      // Filter projects
+      const filtered = category === 'all' 
+        ? projectsData 
+        : projectsData.filter(p => p.category === category);
+
+      renderProjects(filtered);
+    }
+
+    // Render Projects
+    function renderProjects(projects) {
+      const container = document.getElementById('projects-container');
+      
+      if (projects.length === 0) {
+        container.innerHTML = `
+          <div style="grid-column: 1 / -1;">
+            <div class="empty-state">
+              <div class="empty-state-icon">🔍</div>
+              <h3 style="color: var(--text); margin-bottom: 8px;">No projects found</h3>
+              <p>Try a different filter or view all projects.</p>
+            </div>
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = projects.map((project, idx) => `
+        <div class="project-card" data-reveal>
+          <div class="project-category">${getCategoryIcon(project.category)} ${project.category}</div>
+          <h3 class="project-title">${project.title}</h3>
+          <p class="project-summary">${project.summary}</p>
+
+          <div class="project-section">
+            <span class="project-section-label">🛠️ Skills Used</span>
+            <div class="skills-list">
+              ${project.skills.map((skill, i) => `
+                <span class="skill-tag ${i === 0 ? 'primary' : ''}">${skill}</span>
+              `).join('')}
+            </div>
+          </div>
+
+          <div class="project-section">
+            <span class="project-section-label">💡 Use Case</span>
+            <div class="use-case">${project.useCase}</div>
+          </div>
+
+          <div class="project-footer">
+            <a href="https://github.com/sahiliitj/Wasserstein-GAN-with-gradient-penalty" class="project-link" target="_blank">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+              View on GitHub
+            </a>
+          </div>
+        </div>
+      `).join('');
+
+      // Re-trigger animations
+      initScrollReveal();
+    }
+
+    function getCategoryIcon(category) {
+      const icons = {
+        'generative': '🎨',
+        'vision': '👁️',
+        'nlp': '🗣️',
+        'unsupervised': '🔍',
+        'applications': '⚡'
+      };
+      return icons[category] || '📊';
+    }
+
+    // Initial render
+    document.addEventListener('DOMContentLoaded', () => {
+      renderProjects(projectsData);
+      initScrollReveal();
+    });
+  </script>
+
+  <script>document.write(getFooterHTML('../'));</script>
+  <script src="../js/main.js"></script>
+</body>
+</html>

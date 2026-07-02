@@ -36,7 +36,7 @@ body {
   min-height: 100vh;
   overflow-x: hidden;
   line-height: 1.6;
-  cursor: none;
+  cursor: auto;
 }
 
 /* ── Custom Cursor ── */
@@ -424,12 +424,20 @@ footer {
 @keyframes float    { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
 @keyframes scanline { from{transform:translateY(-100%)} to{transform:translateY(100vh)} }
 @keyframes glow     { 0%,100%{box-shadow:0 0 8px var(--accent)} 50%{box-shadow:0 0 24px var(--accent)} }
+@keyframes shimmer  { 0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%} }
+@keyframes pulse    { 0%{opacity:1}50%{opacity:0.5}100%{opacity:1} }
+@keyframes slideIn  { from{transform:translateX(-100%);opacity:0}to{transform:translateX(0);opacity:1} }
+@keyframes bounce   { 0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)} }
+@keyframes rotateIn { from{transform:rotate(-180deg);opacity:0}to{transform:rotate(0);opacity:1} }
 
 .anim-fade-up   { animation: fadeUp 0.7s ease both; }
 .anim-fade-up-2 { animation: fadeUp 0.7s 0.15s ease both; }
 .anim-fade-up-3 { animation: fadeUp 0.7s 0.3s ease both; }
 .anim-fade-up-4 { animation: fadeUp 0.7s 0.45s ease both; }
 .anim-float     { animation: float 4s ease-in-out infinite; }
+.anim-pulse     { animation: pulse 2s ease-in-out infinite; }
+.anim-bounce    { animation: bounce 1s ease-in-out infinite; }
+.anim-shimmer   { animation: shimmer 3s ease-in-out infinite; background-size: 200% 200%; }
 
 /* ── Responsive ── */
 @media(max-width:900px){

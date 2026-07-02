@@ -30,6 +30,10 @@ function getNavHTML(prefix = '') {
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
         Research
       </a>
+      <a href="${prefix}pages/projects.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+        Projects
+      </a>
       <a href="${prefix}pages/achievements.html">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
         Achievements
@@ -66,13 +70,13 @@ function getFooterHTML(prefix = '') {
             <a href="mailto:sahilsharma@iitj.ac.in" data-tooltip="Email">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
             </a>
-            <a href="https://github.com/" target="_blank" data-tooltip="GitHub">
+            <a href="https://github.com/sahiliitj" target="_blank" data-tooltip="GitHub">
               <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
             </a>
-            <a href="https://scholar.google.com/" target="_blank" data-tooltip="Google Scholar">
+            <a href="https://scholar.google.com/citations?user=" target="_blank" data-tooltip="Google Scholar">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
             </a>
-            <a href="https://twitter.com/" target="_blank" data-tooltip="Twitter / X">
+            <a href="https://twitter.com/SahilSharma04" target="_blank" data-tooltip="Twitter / X">
               <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
             </a>
           </div>
@@ -84,6 +88,7 @@ function getFooterHTML(prefix = '') {
             <a href="${prefix}pages/about.html">About</a>
             <a href="${prefix}pages/experience.html">Experience</a>
             <a href="${prefix}pages/research.html">Research</a>
+            <a href="${prefix}pages/projects.html">Projects</a>
           </div>
         </div>
         <div>

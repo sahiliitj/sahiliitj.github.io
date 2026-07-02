@@ -67,7 +67,7 @@ function initNeuralBg(canvasId) {
 function initCursor() {
   const c = document.getElementById('cursor');
   const r = document.getElementById('cursor-ring');
-  if (!c || !r) return;
+  if (!c || !r) { console.warn('Custom cursor elements not found'); return; }
   let mx = 0, my = 0, rx = 0, ry = 0;
   document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
   (function loop() {
@@ -190,7 +190,21 @@ function initAddPageModal() {
 }
 
 function generateCustomPageNotice(page) {
-  console.log('Custom page data:', page);
+  // Generate HTML content and provide download link
+  const html = generateCustomPageHTML(page, '../');
+  const blob = new Blob([html], { type: 'text/html' });
+  const url = URL.createObjectURL(blob);
+  
+  // Create and trigger download
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `custom_${page.id}.html`;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+  
+  showToast(`📥 Downloaded: custom_${page.id}.html — Save to pages/ folder`);
 }
 
 // ── Toast Notification ──
@@ -210,48 +224,128 @@ function showToast(msg, type = 'success') {
   setTimeout(() => { t.style.opacity = '0'; t.style.transition = 'opacity 0.4s'; setTimeout(() => t.remove(), 400); }, 3500);
 }
 
-// ── Profile Picture Upload ──
+// ── Compress Image ──
+function compressImage(file, maxWidth = 200, quality = 0.7, callback) {
+  const reader = new FileReader();
+  reader.onload = (e) => {
+    const img = new Image();
+    img.onload = () => {
+      const canvas = document.createElement('canvas');
+      let width = img.width;
+      let height = img.height;
+      if (width > height && width > maxWidth) {
+        height = Math.round((height * maxWidth) / width);
+        width = maxWidth;
+      } else if (height > maxWidth) {
+        width = Math.round((width * maxWidth) / height);
+        height = maxWidth;
+      }
+      canvas.width = width;
+      canvas.height = height;
+      const ctx = canvas.getContext('2d');
+      ctx.drawImage(img, 0, 0, width, height);
+      callback(canvas.toDataURL('image/jpeg', quality));
+    };
+    img.src = e.target.result;
+  };
+  reader.readAsDataURL(file);
+}
+
+// ── Profile Picture Upload (Enhanced) ──
 function initProfilePicUpload() {
   const input   = document.getElementById('pfp-upload');
   const preview = document.getElementById('pfp-preview');
   const placeholder = document.getElementById('pfp-placeholder');
+  const badge = document.querySelector('.pfp-upload-badge');
   if (!input || !preview) return;
 
   const saved = localStorage.getItem('sahil_pfp');
-  if (saved) { preview.src = saved; preview.style.display = 'block'; if(placeholder) placeholder.style.display = 'none'; }
+  if (saved) { 
+    preview.src = saved; 
+    preview.style.display = 'block'; 
+    if(placeholder) placeholder.style.display = 'none';
+    if(badge) badge.style.opacity = '0.7';
+  }
 
   input.addEventListener('change', e => {
     const file = e.target.files[0];
     if (!file) return;
-    const reader = new FileReader();
-    reader.onload = ev => {
-      const data = ev.target.result;
-      localStorage.setItem('sahil_pfp', data);
-      preview.src = data;
-      preview.style.display = 'block';
-      if (placeholder) placeholder.style.display = 'none';
-      showToast('Profile photo updated!');
-    };
-    reader.readAsDataURL(file);
+    
+    showToast('Compressing image...');
+    compressImage(file, 200, 0.75, (compressed) => {
+      try {
+        localStorage.setItem('sahil_pfp', compressed);
+        preview.src = compressed;
+        preview.style.display = 'block';
+        if (placeholder) placeholder.style.display = 'none';
+        if (badge) badge.classList.add('anim-pulse');
+        showToast('✓ Profile photo updated!');
+        setTimeout(() => { if(badge) badge.classList.remove('anim-pulse'); }, 2000);
+      } catch (err) { 
+        showToast('Storage error. Please clear some space.'); 
+      }
+    });
   });
+}
+
+// ── Generate Custom Page HTML ──
+function generateCustomPageHTML(page, prefix = '') {
+  const { id, title, section, content, icon } = page;
+  return `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>${title} — Sahil Sharma</title>
+  <link rel="stylesheet" href="${prefix}css/main.css">
+</head>
+<body>
+  <script src="${prefix}js/components.js"><\/script>
+  <script>document.write(getNavHTML('${prefix}'));<\/script>
+  
+  <div class="page-content">
+    <section class="section" style="padding-top: 120px;">
+      <div class="container">
+        <div class="section-eyebrow" data-reveal>${icon} ${title}</div>
+        <h1 class="section-title" data-reveal>${title}</h1>
+        ${section ? `<h2 class="section-sub" data-reveal>${section}</h2>` : ''}
+        <div data-reveal style="margin-top:32px; padding:20px; background:var(--surface); border-radius:12px; border:1px solid var(--border2);">
+          <p style="color:var(--text2); line-height:1.8;">${content || 'Content goes here...'}</p>
+        </div>
+        <div style="margin-top:48px;">
+          <a href="${prefix}index.html" class="btn btn-primary">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/><\/svg>
+            Back to Home
+          </a>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script>document.write(getFooterHTML('${prefix}'));<\/script>
+  <script src="${prefix}js/main.js"><\/script>
+</body>
+</html>`;
 }
 
 // ── Typing Effect ──
 function initTypingEffect(el, texts, speed = 80) {
   if (!el) return;
-  let ti = 0, ci = 0, del = false;
+  let ti = 0, ci = 0, del = false, timeouts = [];
   function tick() {
     const txt = texts[ti];
     if (!del) {
       el.textContent = txt.slice(0, ++ci);
-      if (ci === txt.length) { del = true; return setTimeout(tick, 1800); }
+      if (ci === txt.length) { del = true; return timeouts.push(setTimeout(tick, 1800)); }
     } else {
       el.textContent = txt.slice(0, --ci);
-      if (ci === 0) { del = false; ti = (ti+1) % texts.length; return setTimeout(tick, 400); }
+      if (ci === 0) { del = false; ti = (ti+1) % texts.length; return timeouts.push(setTimeout(tick, 400)); }
     }
-    setTimeout(tick, del ? speed/2 : speed);
+    timeouts.push(setTimeout(tick, del ? speed/2 : speed));
   }
   tick();
+  // Cleanup on navigation
+  return () => { timeouts.forEach(t => clearTimeout(t)); };
 }
 
 // ── Particle Click Effect ──
